@@ -6,8 +6,8 @@ from app.core.config import settings
 app = FastAPI(
     title=settings.app_name,
     version=settings.app_version,
-    debug=settings.debug,
-    description="AI-native cloud observability and infrastructure analytics platform."
+    description="AI-native cloud observability and infrastructure analytics platform.",
+    debug=False
 )
 
-app.include_router(health_router)
+app.include_router(health_router, prefix="/api/v1", tags=["health"])
